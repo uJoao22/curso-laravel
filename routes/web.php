@@ -18,7 +18,8 @@ use App\Http\Controllers\EventController; //Importando o EventController
 
 Route::get('/', [EventController::class, 'index']); //Quando for acessada a rota / será chamada a funçao index que está dentro do EventController
 Route::get('/events/create', [EventController::class, 'create']); //Quando for acessada a rota /events/create será chamada a funçao create que está dentro do EventController
- 
+Route::post('/events', [EventController::class, 'store']); //Criando uma rota de post chamada store
+
 Route::get('/contact', function () {
     return view('contact');
 });

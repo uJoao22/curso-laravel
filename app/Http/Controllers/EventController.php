@@ -18,4 +18,18 @@ class EventController extends Controller
     public function create(){
         return view("events.create");
     }
+
+     public function store(Request $request){ //Criando a rota store com o parametro request, recebendo os dados do formulario
+        $event = new Event;
+
+        //event no indice mencionado recebe o dado do request no indice mencionado
+        $event->title = $request->title;
+        $event->city = $request->city;
+        $event->private = $request->private;
+        $event->description = $request->description;
+
+        $event->save(); //Salvando os dados no banco
+
+        return redirect('/'); //Redirecionando o usuário para a rota /
+    }
 }
