@@ -13,25 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+use App\Http\Controllers\EventController; //Importando o EventController
 
-    $nome = "Matheus";
-    $idade = 29;
-    $profissao = "Programador";
 
-    $arr = [10,20,30,40,50];
-    $nomes = ["Matheus", "Maria", "João", "Saulo"];
-
-    return view('welcome', //Enviando dados através de rotas
-    [
-        'nome' => $nome, 
-        'idade' => $idade, 
-        'profissao' => $profissao,
-        'arr' => $arr,
-        'nomes' => $nomes,
-    ]); 
-});
-
+Route::get('/', [EventController::class, 'index']); //Quando for acessada a rota / será chamada a funçao index que está dentro do EventController
+Route::get('/events/create', [EventController::class, 'create']); //Quando for acessada a rota /events/create será chamada a funçao create que está dentro do EventController
+ 
 Route::get('/contact', function () {
     return view('contact');
 });
