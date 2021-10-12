@@ -4,24 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Event; //Chamando a classe model Event
+
 class EventController extends Controller
 {
     public function index() { //Criando a rota index - A rota principal da aplicação
-        $nome = "Matheus";
-        $idade = 29;
-        $profissao = "Programador";
+
+        $events = Event::all(); //Chamando todos os eventos do banco para a variavel events
     
-        $arr = [10,20,30,40,50];
-        $nomes = ["Matheus", "Maria", "João", "Saulo"];
-    
-        return view('welcome', //Enviando dados através de rotas
-        [
-            'nome' => $nome, 
-            'idade' => $idade, 
-            'profissao' => $profissao,
-            'arr' => $arr,
-            'nomes' => $nomes,
-        ]); 
+        return view('welcome', ['events' => $events]); //Envinado para a view / todos os eventos do banco
     }
 
     public function create(){

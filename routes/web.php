@@ -22,18 +22,3 @@ Route::get('/events/create', [EventController::class, 'create']); //Quando for a
 Route::get('/contact', function () {
     return view('contact');
 });
-
-//Acessando uma rota através do parametro
-//Recebendo o parametro id pela rota e enviando o parametro pela funçao para a view
-Route::get('/produtos_teste/{id?}', function ($id = null) { //Obrigatorio o uso de um parametro, bom definir um parametro default
-    return view('product', ['id' => $id]); //Enviando o parametro através da rota 
-});
-
-Route::get('/produtos', function () {  //Quando o usuario acessar a rota /produtos
-
-    $busca = request('search'); //A variavel busca ira receber por request os dados do parametro search
-
-    return view('products', ['busca' => $busca]); //irá aparecer a view produtcs, e será enviado a variaveç busca para a view
-});
-
-
