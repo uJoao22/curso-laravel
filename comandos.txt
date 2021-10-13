@@ -1,0 +1,14 @@
+composer create-project laravel/laravel example-app   -----     Instalando o laravel via composer
+php artisan serve     -----     Inicializando servidor
+php artisan make:controller NomeNoSingularController     -----     Criando um controller (IMPORTANTE O FINAL SER "Controller")
+php artisan make:migartion create_migration     -----     Cria uma nova migration
+php artisan migrate     -----     Executando as migrations que não foram executadas ainda
+php artisan migrate:fresh     -----     Reseta o banco, deleta tudo e depois executa as migrations denovo (MUITO CUIDADO AO USAR)
+php artisan migrate:refresh     -----     Faz todo o rollback do banco e depois o migration novamente (MUITO CUIDADO AO USAR)
+php artisan migrate:status     -----     Verifica a situação das migrations
+php artisan migrate:rollback     -----     Desfaz a ultima ação feita
+php artisan migrate:reset     -----     Reseta o banco (MUITO CUIDADO AO USAR)
+php artisan make:model nameModel     -----     Cria um novo Model
+
+
+DICA: Boa prática quando for adicionar uma nova coluna a uma tablea, criar uma nova migration para efeturar a adição
